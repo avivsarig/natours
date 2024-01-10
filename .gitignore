@@ -1,1 +1,4 @@
 node_modules
+
+// keep config.json secure
+config.json
