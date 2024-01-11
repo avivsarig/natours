@@ -122,7 +122,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use(express.json());
 app.use("/", viewRouter);
 app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", userRouter);

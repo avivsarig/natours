@@ -30,11 +30,12 @@ if (process.env.DATABASE && process.env.DATABASE_PASSWORD) {
 }
 
 mongoose
-	.connect(DB, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
-	.then(() => console.log("DB connection successful"));
+	.connect(DB)
+	.then(() => console.log("DB connection successful"))
+	.catch((err) => {
+		console.error("Database Connection error");
+		if (process.env.NODE_ENV.trim() === "development") console.error(err);
+	});
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
